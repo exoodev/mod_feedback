@@ -2,7 +2,7 @@
 <extension type="module" version="3.1" client="site" method="upgrade">
 	
 	<name>mod_feedback</name>
-	<author>EXOO</author>
+	<author>ExooHub</author>
 	<creationDate>May 2015</creationDate>
 	<copyright>Copyright (C) ExooHub</copyright>
 	<license>GNU General Public License version 2 or later</license>
@@ -41,7 +41,7 @@
 					label="MOD_FEEDBACK_FIELD_SUBJECT_LABEL"
 					description="MOD_FEEDBACK_FIELD_SUBJECT_DESC" />
 
-                <field 
+                <field
                 	name="success_message"
 					type="textarea"
 					filter="safehtml"
