@@ -41,8 +41,8 @@
 					label="MOD_FEEDBACK_FIELD_SUBJECT_LABEL"
 					description="MOD_FEEDBACK_FIELD_SUBJECT_DESC" />
 
-                <field
-                	name="success_message"
+				<field
+					name="success_message"
 					type="textarea"
 					filter="safehtml"
 					cols="30"
