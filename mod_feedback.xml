@@ -20,8 +20,6 @@
 	<languages>
 		<language tag="en-GB">en-GB.mod_feedback.ini</language>
 		<language tag="en-GB">en-GB.mod_feedback.sys.ini</language>
-		<language tag="ru-RU">ru-RU.mod_feedback.ini</language>
-		<language tag="ru-RU">ru-RU.mod_feedback.sys.ini</language>
 	</languages>
 	
 	<config>
