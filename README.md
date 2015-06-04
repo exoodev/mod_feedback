@@ -1,1 +1,1 @@
-### Модуль обратной связи для Joomla 3.4
+### Module feedback for Joomla 3.4
