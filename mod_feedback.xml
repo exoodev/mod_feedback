@@ -13,7 +13,8 @@
 
 	<files>
 		<filename module="mod_feedback">mod_feedback.php</filename>
-		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>mod_feedback.xml</filename>
 		<folder>tmpl</folder>
 	</files>
 
