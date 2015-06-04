@@ -8,40 +8,25 @@
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-if(isset($_POST['feedback'])) {
+// Include the helper.
+require_once __DIR__ . '/helper.php';
 
-	$input = JFactory::getApplication()->input;
-	$formData = new JInput($input->post->get('feedback', '', 'array'));
+$doc = JFactory::getDocument();
+$js = <<<JS
+(function ($) {
+	$(document).on('submit', '#feedback-form', function () {
+		$.ajax({
+			type   : 'POST',
+			data   : $(this).serialize(),
+			dataType: 'json',
+			success: function (response) {
+				$('.feedback-module').html(response);
+			}
+		});
+		return false;
+	});
+})(jQuery)
+JS;
+$doc->addScriptDeclaration($js);
 
-	// $sender_name = $formData->getWord('name');
-	$sender = $formData->getString('email');
-	$recipient = $params->get('recipient');
-	$subject = $params->get('subject');
-
-	$mailer = JFactory::getMailer();
-	$mailer->setSender($sender);
-	$mailer->addRecipient($recipient);
-
-	//create the mail
-	$mailer->setSubject($subject);
-
-	$body   = '<p><strong>Отправитель:</strong> ' . $formData->getString('name') . '</p>'
-		. '<p><strong>Телефон:</strong> ' . $formData->getString('phone') . '</p>'
-		. '<p><strong>Сообщение:</strong> ' . $formData->getString('message') . '</p>';
-
-	$mailer->isHTML(true);
-	$mailer->Encoding = 'base64';
-	$mailer->setBody($body);
-	// Optional file attached
-	// $mailer->addAttachment(JPATH_COMPONENT.'/assets/document.pdf');
-
-	//sending the mail
-	$send = $mailer->Send();
-	if ($send !== true) {
-	    echo 'Error sending email: ' . $send->__toString();
-	} else {
-	    require(JModuleHelper::getLayoutPath('mod_feedback', 'success'));
-	}
-} else {
-    require(JModuleHelper::getLayoutPath('mod_feedback'));
-}
+require(JModuleHelper::getLayoutPath('mod_feedback'));
